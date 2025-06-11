@@ -1,0 +1,67 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <script src="../angular.js"></script>
+    <script src="../js/add.js"></script>
+  </head>
+  <body class="bg-gray-100" ng-app="AddPage">
+    <!-- Back Button -->
+
+    <div class="header">
+      <div class="title">Task Manager</div>
+
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i>
+        <span>Neeraj Suhanda</span>
+      </div>
+    </div>
+
+    <main class="bg-blue-100 py-8">
+      <button
+        onclick="window.location.href='home.html'"
+        class="text-white bg-gray-700 hover:bg-gray-900 px-3 py-1 rounded flex items-center"
+      >
+        <i class="fas fa-arrow-left mr-2"></i> Back
+      </button>
+
+
+  <div id="calendar"></div>
+
+  <!-- FullCalendar JS (must be placed AFTER the calendar container) -->
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+    
+        // Initialize calendar
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'dayGridMonth',
+          height: 'auto',
+          events: function(fetchInfo, successCallback, failureCallback) {
+            fetch('http://localhost:3000/calendarEvents')
+              .then(response => response.json())
+              .then(data => {
+                successCallback(data); // set events dynamically
+              })
+              .catch(error => {
+                console.error('Error loading calendar events:', error);
+                failureCallback(error);
+              });
+          }
+        });
+    
+        calendar.render();
+    
+    });
+  </script>
+
+</body>
+</html>

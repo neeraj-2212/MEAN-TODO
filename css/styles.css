@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+
+body {
+
+    margin: 0;
+    padding: 0;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+#calendar {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position the tooltip above the text */
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.header {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.header .title {
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 24px;
+    color: #e94560;
+    font-weight: bold;
+}
+.header .search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+    position: relative;
+}
+.py-1{
+    margin-left:55px;
+}
+.header .search-bar input {
+    width: 100%;
+    padding: 10px 20px 10px 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.header .search-bar i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #888;
+}
+.header .user-info {
+    display: flex;
+    align-items: center;
+}
+.header .user-info i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+.header .user-info span {
+    font-size: 16px;
+}
+.nav-bar {
+    background-color: #16213e;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.nav-bar a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.nav-bar a i {
+    margin-right: 5px;
+}
+.nav-bar a:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+}
+.dashboard-title {
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Press Start 2P', cursive;
+    margin: 20px 0;
+}
+.task-table {
+    width:88%;
+    border-collapse: collapse;
+    margin-top:90;
+    margin-left:60;
+    margin-right:90;
+}
+.task-table th, .task-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+.task-table th {
+    background-color: #f2f2f2;
+    font-size: 18px;
+}
+.task-table th:nth-child(2) {
+    color: red;
+}
+.status-completed {
+    color:#00ff00;
+    font-size: larger;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.status-pending {
+    color:orange;
+    font-size: larger;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    position: relative;
+}
+.action-buttons button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+}
+.action-buttons button:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 12px;
+}
+.edit-button {
+    background-color: #ffa500;
+    color: white;
+}
+.delete-button {
+    background-color: #ff0000;
+    color: white;
+}
+.complete-button {
+    background-color: #00ff00;
+    color: white;
+}
+@media (max-width: 800px) {
+    .header .title {
+        font-size: 20px;
+    }
+    .header .search-bar input {
+        font-size: 14px;
+    }
+    .header .user-info i {
+        font-size: 20px;
+    }
+    .header .user-info span {
+        font-size: 14px;
+    }
+    .nav-bar a {
+        font-size: 14px;
+    }
+    .dashboard-title {
+        font-size: 28px;
+    }
+    .task-table th, .task-table td {
+        font-size: 16px;
+    }
+}
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header .title {
+        font-size: 18px;
+    }
+    .header .search-bar {
+        margin: 10px 0;
+    }
+    .header .search-bar input {
+        font-size: 14px;
+    }
+    .header .user-info i {
+        font-size: 18px;
+    }
+    .header .user-info span {
+        font-size: 14px;
+    }
+    .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-bar a {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+    .dashboard-title {
+        font-size: 24px;
+    }
+    .task-table th, .task-table td {
+        font-size: 14px;
+    }
+}

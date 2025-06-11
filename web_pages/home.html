@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../angular.js"></script>
+    <script src="../js/add.js"></script>
+</head>
+<body ng-app="AddPage">
+    <div class="header" >
+        <div class="title">Task Manager</div>
+        <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search the Task name or price">
+        </div>
+        <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span>Neeraj Suhanda</span>
+        </div>
+    </div>
+    <div class="nav-bar" >
+        <a href="add.html" data-tooltip="Add a new task"><i class="fas fa-plus"></i> Add Task</a>
+        <a href="first.html" data-tooltip="Add a new team"><i class="fas fa-users"></i> Add Team</a>
+        <a href="calendar.html" data-tooltip="View calendar"><i class="fas fa-calendar-alt"></i> Calendar</a>
+        <a href="#" data-tooltip="Get help"><i class="fas fa-question-circle"></i> Help</a>
+    </div>
+    <div class="dashboard-title">DASHBOARD</div>
+    <table class="task-table" ng-controller="AddCtrl">
+        <thead>
+            <tr>
+                <th>Srno</th>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Action</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="(index, t) in list">
+              <td>{{index + 1}}.</td>
+              <td>{{t.task}}</td>
+              <td>{{t.createdAt | date:'dd/MM/yy'}}</td>
+              <td>
+                <div class="action-buttons">
+                  <button class="edit-button" data-tooltip="Edit task">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="delete-button"  data-tooltip="Delete task" ng-click="deleteTask(t._id)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                  <button class="complete-button" data-tooltip="Complete task" ng-click="completeTask(t._id)">
+                    <i class="fas fa-check"></i>
+                  </button>
+                </div>
+              </td>
+              <td>
+                <span ng-class="{'status-pending': t.status === 'pending', 'status-completed': t.status === 'completed'}">
+                  {{t.status || 'pending'}}
+                </span>
+              </td>
+              
+            </tr>
+          </tbody>
+    </table>
+</body>
+</html>

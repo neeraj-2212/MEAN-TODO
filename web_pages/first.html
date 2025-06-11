@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Task Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="bg-cover bg-center" style="background-image: url('https://framerusercontent.com/images/RRDnd1Vdadmss2O742F9gn71H14.png');">
+    <div class="bg-blue-800 p-4 flex justify-between items-center">
+      <button
+      onclick="window.location.href='home.html'"
+      class="text-white bg-gray-700 hover:bg-gray-900 px-3 py-1 rounded flex items-center"
+    >
+      <i class="fas fa-arrow-left mr-2"></i> Back
+    </button>
+        <h1 class="text-4xl text-white"><span class="text-red-600">Task</span> Manager</h1>
+        <div class="flex items-center text-white">
+            <i class="fas fa-user-circle text-2xl mr-2"></i>
+            <span>Neeraj Suhanda</span>
+        </div>
+    </div>
+    <div class="flex justify-center items-center h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+            <h2 class="text-3xl text-center text-red-600 mb-6">Add Team</h2>
+            <form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="team-name">Enter Team Name</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="team-name" type="text" placeholder="Team Avengers" value="Team Avengers">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="team-members">Enter Team Members</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="team-members" type="text" placeholder="Tony, Steve, Bruce, Natasha" value="Tony, Steve, Bruce, Natasha">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="project-task">Assign Project/Task</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="project-task">
+                        <option>Select..</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="remarks">Remarks</label>
+                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="remarks" placeholder="Any Special Thing">Any Special Thing</textarea>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button class="bg-black text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline" type="button">
+                        Add Team
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
